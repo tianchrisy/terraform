@@ -78,8 +78,8 @@ resource "azurerm_windows_virtual_machine" "TestEnvi_VM" {
   resource_group_name = azurerm_resource_group.TestEnvi_RG.name
   location            = azurerm_resource_group.TestEnvi_RG.location
   size                = "Standard_E8_v4"
-  admin_username      = "SDPadmin"
-  admin_password      = "nshr3etDD!%FGthjhyhseth!!@$TddkDFGDFN!RYNRYAASRfmdfmfmithw4thwth%G"
+  admin_username      = ""
+  admin_password      = ""
 
   network_interface_ids = [
     azurerm_network_interface.TestEnvi_NIC.id,
