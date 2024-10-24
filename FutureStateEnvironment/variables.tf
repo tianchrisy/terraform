@@ -8,7 +8,11 @@ variable "admin_username" {
   sensitive = true
   default   = "sdpadmin"
 }
-variable "virtualMachineDC1Name"{
+variable "virtualMachineDC1Name" {
+  type    = string
+  default = "ThisPractice"
+}
+variable "practiceName"{
   type = string
   default = "ThisPractice"
 }

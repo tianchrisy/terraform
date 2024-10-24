@@ -14,16 +14,22 @@ resource "azurerm_virtual_machine" "virtualMachineDC1" {
   vm_size             = "Standard_E4s_v3"
 
   storage_os_disk {
-    name              = var.virtualMachineDC1Name + "-osdisk"
+    name              = var.practiceName + "-osdisk"
     caching           = "ReadWrite"
     managed_disk_type = "Standard_LRS"
     disk_size_gb      = 127
+    
   }
   os_profile {
-    computer_name  = "DC1"
+    computer_name  = var.practiceName + "-DC1"
     admin_username = var.admin_username
     admin_password = var.admin_password
   }
+
+  network_interface_ids = [
+    azurerm_network_interface.virtualMachineDC1_nic.id,
+  ]
+
 
   storage_image_reference {
     publisher = "MicrosoftWindowsServer"
@@ -34,6 +40,5 @@ resource "azurerm_virtual_machine" "virtualMachineDC1" {
   tags = {
     environment = "practiceInfrastructure"
   }
-
 
 }
